@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-SUPABASE_URL@3.19.0/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -1540,7 +1540,8 @@ function enterApp(p){
   document.getElementById('loginScreen').classList.add('hidden');
   document.getElementById('app').classList.remove('hidden');
   takeSnapshot(); switchTab('portfolio'); fetchMarket();
-  // Auto-pull from Supabase if connected
+  // Show sync button if Supabase configured
+  if(supa) setSyncStatus(supaUser?'synced':'', supaUser?'Sincronizado':'Conectar ☁');
   if(supaUser) setTimeout(syncPull, 800);
 }
 
@@ -2561,8 +2562,8 @@ function confirmImport(){
    1. SUPABASE_URL:  Settings → General → Project URL
    2. SUPABASE_KEY:  Settings → API Keys → Publishable key (sb_publishable_...)
 ═══════════════════════════════════════════════════════════════ */
-var SUPABASE_URL = 'https://rdsolkaxvpuuxtmfgwrc.supabase.co';
-var SUPABASE_KEY = 'sb_publishable_6Um1pD0xE83R3RhPstWCOA_4pVrn3cS';
+var SUPABASE_URL = 'PEGAR_TU_PROJECT_URL_AQUI';
+var SUPABASE_KEY = 'PEGAR_TU_PUBLISHABLE_KEY_AQUI';
 
 /* ── Supabase client (lazy init) ── */
 var supa = null;
@@ -2583,7 +2584,7 @@ function setSyncStatus(status, text){
   var lbl=document.getElementById('syncLbl');
   if(!btn) return;
   btn.style.display='flex';
-  btn.className='sync-indicator '+(status||'');
+  btn.className='sync-indicator '+(status||'').trim();
   if(lbl) lbl.textContent=text||'Sync';
 }
 

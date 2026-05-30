@@ -1079,6 +1079,10 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
         <span class="hdr-title">Mis Inversiones</span>
       </div>
       <div class="hdr-r">
+        <button id="syncBtn" class="sync-indicator" title="Sincronizar con la nube" style="display:none">
+          <span class="sync-dot"></span>
+          <span id="syncLbl">Conectar ☁</span>
+        </button>
         <div id="hdrAv" class="hdr-av"></div>
         <button id="themeBtn" class="btn-ih" title="Tema"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
         <button id="logoutBtn" class="btn-ih" title="Cerrar sesión"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></button>
@@ -2562,8 +2566,8 @@ function confirmImport(){
    1. SUPABASE_URL:  Settings → General → Project URL
    2. SUPABASE_KEY:  Settings → API Keys → Publishable key (sb_publishable_...)
 ═══════════════════════════════════════════════════════════════ */
-var SUPABASE_URL = 'https://rdsolkaxvpuuxtmfgwrc.supabase.co';
-var SUPABASE_KEY = 'sb_publishable_6Um1pD0xE83R3RhPstWCOA_4pVrn3cS';
+var SUPABASE_URL = 'PEGAR_TU_PROJECT_URL_AQUI';
+var SUPABASE_KEY = 'PEGAR_TU_PUBLISHABLE_KEY_AQUI';
 
 /* ── Supabase client (lazy init) ── */
 var supa = null;
